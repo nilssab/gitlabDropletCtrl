@@ -19,10 +19,6 @@ end
 #connect client and get interface object
 client= DropletKit::Client.new(access_token: token)
 
-#get ssh keys
-ssh_keys= client
-drople
-
 #check persisted dropletID of the server, if avaiable
 if File.exists?("dropletID")
   puts "droplet already exists"
@@ -31,7 +27,8 @@ if File.exists?("dropletID")
   client.droplets.delete(id: droplet_id)
 else
   puts "Creating new droplet"
-  droplet = DropletKit::Droplet.new(name: 'gitlabDroplet', region: 'fra1', image: 'ubuntu-20-04-x64', size: 's-2vcpu-4gb')
+  my_ssh_keys = client.ssh_keys.all.collect {|key| key.fingerprint}
+  droplet = DropletKit::Droplet.new(name: 'gitlabDroplet', region: 'fra1', image: 'ubuntu-20-04-x64', size: 's-2vcpu-4gb', ssh_keys: my_ssh_keys)
   created = client.droplets.create(droplet)
   puts "droplet ID is " + droplet.id.to_s
   File.write('dropletID', created.id)
