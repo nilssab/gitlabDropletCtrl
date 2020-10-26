@@ -22,8 +22,6 @@ chmod +x /usr/local/bin/docker-compose
 
 docker-compose --version
 
-export GITLAB_HOME=/srv/gitlab
 export GITLAB_HOME=$HOME/gitlab
 
-cd $HOME/code/gitlab
-#docker-compose up -d
+docker-compose up -d
