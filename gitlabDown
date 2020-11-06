@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export GITLAB_HOME=$HOME/gitlab
+
+cd $HOME/code/gitlab
+docker-compose down

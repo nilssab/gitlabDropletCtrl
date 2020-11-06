@@ -25,7 +25,7 @@ if File.exists?("dropletID")
   file = File.open("dropletID")
   droplet_id = file.read.chomp
   droplet = client.droplets.find(id: droplet_id)
-  if droplet.id = droplet_id
+  if droplet.id == droplet_id
      puts "droplet is running"
   else
     puts "droplet ID mismatch, please cull or take down"
@@ -33,7 +33,7 @@ if File.exists?("dropletID")
 else
   puts "Creating new droplet"
   my_ssh_keys = client.ssh_keys.all.collect {|key| key.fingerprint}
-  droplet = DropletKit::Droplet.new(name: 'gitlabDroplet', region: 'fra1', image: 'ubuntu-20-04-x64', size: 's-2vcpu-4gb', ssh_keys: my_ssh_keys)
+  droplet = DropletKit::Droplet.new(name: 'gitlabDroplet', region: 'fra1', image: 'ubuntu-20-04-x64', size: 's-2vcpu-4gb', ssh_keys: my_ssh_keys, monitoring: 'true')
   created = client.droplets.create(droplet)
   puts "droplet ID is " + droplet.id.to_s
   File.write('dropletID', created.id)
