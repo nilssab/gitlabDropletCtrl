@@ -24,7 +24,12 @@ if File.exists?("dropletID")
   puts "droplet already exists"
   file = File.open("dropletID")
   droplet_id = file.read.chomp
-  client.droplets.delete(id: droplet_id)
+  droplet = client.droplets.find(id: droplet_id)
+  if droplet.id = droplet_id
+     puts "droplet is running"
+  else
+    puts "droplet ID mismatch, please cull or take down"
+  end
 else
   puts "Creating new droplet"
   my_ssh_keys = client.ssh_keys.all.collect {|key| key.fingerprint}
