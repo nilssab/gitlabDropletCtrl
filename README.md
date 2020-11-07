@@ -25,6 +25,8 @@ Using the below commands, you can easily and safely backup and delete the gitlab
 
   - ssh into the droplet /root folder.
 
+  - you need to update the urls in docker-compose.yml to match your hostname url.
+  
   - If restoring a backup: change version in docker-compose.yml from `:latest` to the version of the backup. \
     For example: `gitlab/gitlab-ee:13.5.3-ee.0`  _#note the .0 that is appended to the version tags._
 
@@ -48,7 +50,7 @@ Using the below commands, you can easily and safely backup and delete the gitlab
     `cp ./gitlab/data/backups/<backup file> .`\
     `scp <backup-file> <backup server>:</path>`\
     `scp config.tar.gz <backup server>:</path>`
-  - If you are removing the droplet
+  - If you are also removing the droplet _#please make sure your backups have been successfully transferred_\
     `./githubDown`\
     exit ssh\
     `ruby ./deleteDigitalOcean`
