@@ -13,7 +13,8 @@ Using the below commands, you can easily and safely backup and delete the gitlab
 
   - Remove with `ruby ./deleteDigitalOcean.rb`, only do this after backing up the gitlab data.
 
-  - If you create too many Droplets, you can use `ruby cullDigitalOcean.rb` to remove all droplets that aren't tracked. Do no do this if you have other DigitalOcean Droplets beside gitlab.
+  - If you create too many Droplets, you can use `ruby cullDigitalOcean.rb` to remove all droplets that aren't tracked.\
+    Do no do this if you have other DigitalOcean Droplets beside gitlab.
 
 - **Setup**
   - Run following commands to move over the needed files:\
@@ -47,7 +48,10 @@ Using the below commands, you can easily and safely backup and delete the gitlab
     `cp ./gitlab/data/backups/<backup file> .`\
     `scp <backup-file> <backup server>:</path>`\
     `scp config.tar.gz <backup server>:</path>`
-
+  - If you are removing the droplet
+    `./githubDown`\
+    exit ssh\
+    `ruby ./deleteDigitalOcean`
 
 - **Updating gitlab**
   - Stop gitlab:\
