@@ -55,7 +55,7 @@ Using the below commands, you can easily and safely backup and delete the gitlab
     `./gitlabDown`
 
   - Update the docker image:\
-    `docker image pull`
+    `docker image pull gitlab/gitlab-ee`
 
   - Start gitlab:\
     `./gitlabUp`
