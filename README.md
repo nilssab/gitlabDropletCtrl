@@ -32,7 +32,7 @@ Using the below commands, you can easily and safely backup and delete the gitlab
   - If restoring a backup:\
     `tar -xcvf <config.tar.gz>` \
     `mv <gitlab backup file> /root/gitlab/data/backups`\
-    `docker ps` _**#**To check the <name of container> (ID), you only need to enter some of the first letters_\
+    `docker ps` _#To check the <name of container> (ID), you only need to enter some of the first letters_\
     `docker exec -it <name of container> gitlab-ctl stop unicorn`\
     `docker exec -it <name of container> gitlab-ctl stop puma`\
     `docker exec -it <name of container> gitlab-ctl stop sidekiq`\
