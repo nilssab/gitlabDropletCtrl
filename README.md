@@ -41,7 +41,6 @@ Using the below commands, you can easily and safely backup and delete the gitlab
 
 - **Creating a backup**
   - ssh in to the droplet and run the commands below:\
-    `./gitlabDown`\
     `tar -czvf config.tar.gz ./gitlab/config`\
     `docker ps` _# to check the `<container name>`, again, only some of the first letters are needed_\
     `docker exec -t <container name> gitlab-backup create`\
