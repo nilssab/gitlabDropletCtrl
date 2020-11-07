@@ -25,7 +25,7 @@ if File.exists?("dropletID")
   file = File.open("dropletID")
   droplet_id = file.read.chomp
   droplet = client.droplets.find(id: droplet_id)
-  if droplet.id == droplet_id
+  if droplet[id] == droplet_id
      puts "droplet is running"
   else
     puts "droplet ID mismatch, please cull or take down"
